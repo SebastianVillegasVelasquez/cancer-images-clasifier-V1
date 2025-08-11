@@ -6,14 +6,14 @@ import os
 if __name__ == '__main__':
     IMG_SIZE = (224, 224)
 
-    benign_malign_model = BenignMalignClassifier(
-        train_path='./data/',
-        test_path='./data/',
-        img_size=IMG_SIZE,
-        batch_size=32,
-        model_save_path='./savedModel/benign_malign',
-        channels=3
-    )
+    # benign_malign_model = BenignMalignClassifier(
+    #     train_path='./data/',
+    #     test_path='./data/',
+    #     img_size=IMG_SIZE,
+    #     batch_size=32,
+    #     model_save_path='./savedModel/benign_malign',
+    #     channels=3
+    # )
 
 
     #benign_malign_model.build_model()
@@ -34,5 +34,5 @@ if __name__ == '__main__':
     )
 
     malign_model.build_model()
-    malign_model.train(epochs=100)
+    malign_model.train(epochs=50)
 
