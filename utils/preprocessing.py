@@ -21,19 +21,11 @@ def prepare_dataset(dataset, training = False):
 
 def image_augmentation(x):
 
-    return keras.Sequential([
-        keras.layers.RandomFlip('horizontal'),
-        keras.layers.RandomRotation(0.1),
-        keras.layers.RandomZoom(0.1),
-        keras.layers.RandomTranslation(0.2, 0.2),
-        keras.layers.RandomContrast(0.2)
-    ])
-
-    # x = keras.layers.RandomFlip('horizontal')(x)
-    # x = keras.layers.RandomRotation(0.1)(x)
-    # x = keras.layers.RandomZoom(0.1)(x)
-    # x = keras.layers.RandomTranslation(0.2, 0.2)(x)
-    # x = keras.layers.RandomContrast(0.2)(x)
-    # return x
+    x = keras.layers.RandomFlip('horizontal')(x)
+    x = keras.layers.RandomRotation(0.1)(x)
+    x = keras.layers.RandomZoom(0.1)(x)
+    x = keras.layers.RandomTranslation(0.2, 0.2)(x)
+    x = keras.layers.RandomContrast(0.2)(x)
+    return x
 
 
