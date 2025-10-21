@@ -20,16 +20,6 @@ class MobileNetV2Instance(BaseModel):
             base_model = model
         super().build_model(base_model=base_model)
 
-    def fine_tuning_model(self):
-        model = self.model
-        fine_tuning_at = -50
-        for layer in model.layers[:fine_tuning_at]:
-            if isinstance(layer, keras.layers.BatchNormalization):
-                layer.trainable = False
-            else:
-                layer.trainable = True
-
-        self.model = model
 
     # super().set_callbacks(
     #     filepath_to_save_model='model/saved_models/mobile_net_v2.keras',

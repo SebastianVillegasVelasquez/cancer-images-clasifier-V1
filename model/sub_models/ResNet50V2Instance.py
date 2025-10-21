@@ -12,14 +12,16 @@ class ResNet50V2Instance(BaseModel):
             tensorboard_log_file='logs_dir/categorical_model'
         )
 
-    def build_model(self):
-        base_model = keras.applications.ResNet50V2(
-            include_top=False,
-            weights='imagenet',
-            input_shape=(256, 256, 3)
-        )
-
-        base_model.trainable = False
+    def build_model(self, model=None):
+        if model is None:
+            base_model = keras.applications.ResNet50V2(
+                include_top=False,
+                weights='imagenet',
+                input_shape=(224, 224, 3)
+            )
+        else:
+            base_model = model
+        super().build_model(base_model=base_model)
 
     def fine_tuning_model(self):
         model = self.model
