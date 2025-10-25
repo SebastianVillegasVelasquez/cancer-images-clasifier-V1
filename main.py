@@ -1,23 +1,25 @@
 from model.DataPreparation import DataPreparation
 from model.sub_models.EfficientNetV2 import EfficientNetV2Instance
+from model.sub_models.MobileNetV2Instance import MobileNetV2Instance
 from utils.TaskType import  TaskType
 from model.DataPreparation import DataPreparation
 if __name__ == '__main__':
 
-    pipeline = DataPreparation(
-        root_folder='data/dataset_binary',
+    dataset = DataPreparation(
+        root_folder='data',
         img_size=(224, 224),
         color_mode='rgb',
         batch_size=32,
         class_mode='binary',
-        shuffle=True)
-    # model = EfficientNetV2Instance(
-    #     layer_name='block6a_expand_activation',
-    #     train_dataset=datasets[0],
-    #     test_dataset=datasets[1],
-    #     validation_dataset=datasets[2],
-    #     task_type=TaskType.BINARY.value
-    # )
-    #
-    # model.build_model()
-    # model.execute_model_flow()
+        shuffle=True).create_datasets_from_subdirectories()
+
+    mobilenet_model = MobileNetV2Instance(
+        train_dataset=dataset['train'],  # Use the training dataset from DataPreparation
+        validation_dataset=dataset['validation'],  # Use the validation dataset from DataPreparation
+        test_dataset=dataset['test'],  # Use the test dataset from DataPreparation
+        task_type=TaskType.BINARY.value,  # Or 'categorical' depending on your problem
+        layer_name='block_15_expand',
+        epochs=5
+    )
+
+    mobilenet_model.execute_model_flow()
