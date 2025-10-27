@@ -1,68 +1,128 @@
-# Python
+# ================================
+# Global ignores
+# ================================
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+*.out
+*.err
+logs/
+*.gz
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Python cache
 __pycache__/
 *.py[cod]
 *$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
 
 # Virtual environments
 venv/
-ENV/
 env/
 .venv/
+.env/
+pip-wheel-metadata/
+*.egg-info/
+.eggs/
 
-# IDE
-.idea/
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+
+# ==================================
+# Backend (FastAPI)
+# ==================================
+# Byte-compiled / optimized / DLL files
+*.pyc
+*.pyo
+*.pyd
+
+# Coverage / testing
+.coverage
+htmlcov/
+.tox/
+.nox/
+.pytest_cache/
+
+# IDE settings
 .vscode/
-*.swp
-*.swo
+.idea/
 
-# Jupyter Notebook
-.ipynb_checkpoints
+# Build artifacts
+build/
+dist/
 
-# Dataset and large files
-data/
-dataset/
+# SQLite or temporary DBs
+*.db
+*.sqlite3
+
+# ==================================
+# Classifier (Python puro)
+# ==================================
+# Data and heavy artifacts
+classifier/data/
+classifier/dataset
+classifier/malign_cancer_dataset
+classifier/notebooks/data
+classifier/model/saved_models
+classifier/notebooks/.ipynb_checkpoints/
+classifier/notebooks/model
+classifier/notebooks/.ipynb_checkpoints
+classifier/utils/HAM10000_metadata.csv
+
+# Models or trained weights
+classifier/models/
+classifier/outputs/
+classifier/checkpoints/
 *.h5
-*.hdf5
 *.pkl
-*.pickle
-models/*.h5
-models/*.pkl
-*.zip
-*.tar.gz
-*.rar
+*.joblib
+*.pt
+*.onnx
+
+# ==================================
+# Frontend (Next.js)
+# ==================================
+# Node dependencies
+frontend/node_modules/
+
+# Build output
+frontend/.next/
+frontend/out/
+
+# Local env files
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# Cache
+frontend/.turbo/
+frontend/.vercel/
+frontend/.swc/
+frontend/.eslintcache
 
 # Logs
-logs/
-*.log
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
 
-# OS generated files
+# ==================================
+# Optional - Editor and system
+# ==================================
+# VSCode
+.vscode/
+
+# JetBrains
+.idea/
+
+# Mac / Windows
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db
-
-# Add your specific large directories here
-# HAM/
-malign_cancer_dataset/
-3
