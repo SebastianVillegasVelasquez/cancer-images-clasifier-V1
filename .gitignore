@@ -75,6 +75,7 @@ classifier/notebooks/.ipynb_checkpoints/
 classifier/notebooks/model
 classifier/notebooks/.ipynb_checkpoints
 classifier/utils/HAM10000_metadata.csv
+classifier/logs_dir
 
 # Models or trained weights
 classifier/models/
