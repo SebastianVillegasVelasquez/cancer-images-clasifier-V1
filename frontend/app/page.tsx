@@ -1,3 +1,4 @@
+import UploadComponent from "@/components/UploadComponent";
 import { Header } from "@/components/header"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -30,10 +31,35 @@ export default function HomePage() {
                   Learn More
                 </Button>
               </Link>
+              <Link href="#upload">
+                <Button className="flex flex-col sm:flex-row gap-4 justify-center">
+                  upload image
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
       </section>
+
+      {/* upload Section */}
+<section id="upload" className="py-20">
+  <div className="container mx-auto px-4">
+    <div className="max-w-4xl mx-auto">
+      <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
+        Upload Image
+      </h2>
+      <p className="text-lg text-muted-foreground mb-8 text-center text-pretty">
+        In this section you can upload your images to validate the cancer prediction percentage.
+      </p>
+
+      {/* Upload UI */}
+      <div className="bg-card rounded-2xl shadow-lg p-8 text-center border border-border">
+        <UploadComponent/>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* About Section */}
       <section id="about" className="py-20">
